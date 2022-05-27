@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171609755-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-171609755-1');
+    </script>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Accent conversion sample</title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center
+        }
+
+        .title h1 {
+            font-size: 18pt;
+            font-family: calibri, verdana, helvetica, sans-serif, Arial, Times, serif;
+            color: black;
+            line-height: 1.15;
+        }
+
+        .title h2 {
+            font-size: 12pt;
+            font-family: calibri, verdana, helvetica, sans-serif, Arial, Times, serif;
+            font-style: italic;
+            color: black;
+            line-height: 1.15;
+        }
+
+        main {
+            font-family: calibri, verdana, helvetica, sans-serif, Arial, Times, serif;
+            font-size: 18px;
+            padding: 0 10px 0 10px;
+        }
+
+        main h2 {
+            font-size: 20px;
+        }
+
+        main table.samples {
+            text-align: center;
+        }
+
+        main table.samples th {
+            border-bottom: 2px solid #333;
+            width: 16%;
+            height: 60px;
+        }
+
+        main table.samples td {
+            border-right: 1px #333 solid;
+            border-bottom: 1px #666 solid;
+            width: 16%;
+            height: 60px;
+        }
+
+
+        main table.samples td {
+            border-right: 1px #333 solid;
+            border-bottom: 1px #666 solid;
+            border-top: 1px #666 solid;
+            width: 16%;
+            height: 60px;
+        }
+
+
+        .mtf {
+            background-color: rgb(225, 225, 255);
+        }
+
+        .ftm {
+            background-color: rgb(255, 225, 225);
+        }
+
+        .source {
+            background-color: rgb(225, 255, 225);
+        }
+
+        audio {
+            width: 250px;
+        }
+
+    </style>
+<body>
+<table class="title">
+    <tbody>
+    <tr>
+        <td>
+            <h1>Accent conversion demo audios</h1>
+        </td>
+    </tbody>
+</table>
+<main>
+
+    <!--<h2>Notes</h2>-->
+
+    <!--<ul>-->
+    <!--<li>The L1 speaker speaks the General American Accent</li>-->
+    <!--<li>YKWK's native language is Korean</li>-->
+    <!--<li>TXHC's native language is Chinese</li>-->
+    <!--<li>Dataset (L2-ARCTIC corpus [1]): <a href="https://psi.engr.tamu.edu/l2-arctic-corpus/">https://psi.engr.tamu.edu/l2-arctic-corpus/</a></li>-->
+    <!--</ul>-->
+
+
+    <!--<h2>Experiment 2: Evaluating the reference-free golden speaker (L2-GS)</h2>-->
+
+    <ul>
+        <li><b>Input speech</b>: the original audio</li>
+        <li><b>Voice conversion</b>: apply the voice conversion to convert the voice and preserve the accent
+            (pronunciation and prosody)
+        </li>
+        <li><b>Accent conversion</b>: apply the accent conversion to convert the accent (from American-accent to
+            Indian-accent) and preserve the voice
+        </li>
+    </ul>
+
+    <table width="100%" class="samples">
+        <tbody>
+        <tr>
+
+            <td rowspan="2"><b>Text</b></td>
+            <td rowspan="2"><b>Input</b></td>
+            <td colspan="2"><b>Voice conversion</b></td>
+            <td colspan="3"><b>Accent conversion</b></td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <b>FragmentVC</b>
+            </td>
+            <td>
+                <b>VQMIVC</b>
+            </td>
+            <td>
+                <b>LSTM-based + VQMIVC synthetic data</b>
+            </td>
+            <td>
+                <b>Wav2vec-based + FragmentVC synthetic data</b>
+            </td>
+            <td>
+                <b>Wav2vec-based + VQMIVC synthetic data</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Author of the danger trail Philip Steels etc
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/input/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_1/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_2/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_lstm/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_1/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_2/1.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Not at this particular case Tom apologized Whittemore
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/input/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_1/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_2/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_lstm/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_1/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_2/2.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <!--        <td rowspan="3">TXHC</td>-->
+            <td>
+
+                For the twentieth time that evening the two men shook hands
+
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/input/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_1/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_2/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_lstm/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_1/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_2/3.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Will we ever forget it
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/input/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_1/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/voice_conversion_2/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_lstm/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_1/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+            <td>
+                <audio controls="">
+                    <source src="wav/accent_conversion_2/4.wav" type="audio/wav"></source>
+                </audio>
+            </td>
+        <tr>
+
+
+            <h2>References</h2>
+            <!--<p>[1] G. Zhao <i>et al</i>., "L2-ARCTIC: A non-native English speech corpus," in <i>Proc. Interspeech</i>, 2018, pp. 2783-2787.</p>-->
+            <!--<p>[2] J.-X. Zhang, Z.-H. Ling, Y. Jiang, L.-J. Liu, C. Liang, and L.-R. Dai, "Improving sequence-to-sequence acoustic modeling by adding text-supervision," in <i>Proc. ICASSP</i>, 2019, pp. 6785-6789.</p>-->
+            <!--<p>[3] S. Liu <i>et al</i>., "End-to-end accent conversion without using native utterances," in <i>Proc. ICASSP</i>, 2020, pp. 6289-6293.</p>-->
+</main>
+</body>
+</html>
